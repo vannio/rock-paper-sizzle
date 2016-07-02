@@ -9,4 +9,5 @@ global.mock = sinon.mock;
 global.stub = sinon.stub;
 
 global.Player = require('./../app/models/player');
+global.Computer = require('./../app/models/computer');
 global.Game = require('./../app/models/game');

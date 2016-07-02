@@ -8,10 +8,10 @@ var Game = function(player1, player2){
 Game.prototype = {
   playRound: function(){
     var currentCombo = this.player1.weapon + ' ' + this.player2.weapon;
-    return this.decideWinner(currentCombo);
+    return this._decideWinner(currentCombo);
   },
 
-  decideWinner: function(combination){
+  _decideWinner: function(combination){
     if (combination.split(' ')[0] === combination.split(' ')[1]){
       return null;
     }
