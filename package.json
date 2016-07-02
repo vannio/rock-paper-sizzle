@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app/app.js",
-    "test": "tests"
+    "test": "mocha -r 'test/test_helpers.js'"
   },
   "author": "vannio",
   "license": "ISC",
@@ -14,6 +14,9 @@
     "nunjucks": "^2.4.2"
   },
   "devDependencies": {
-    "nodemon": "^1.9.2"
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.9.2",
+    "sinon": "^1.17.4"
   }
 }
