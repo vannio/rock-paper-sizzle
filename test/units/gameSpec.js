@@ -4,7 +4,7 @@ describe('Game', function(){
   var game = new Game(player1, player2);
 
   describe('#playRound', function(){
-    describe('Player 1 chooses rock', function(){
+    context('Player 1 chooses rock', function(){
       beforeEach(function(){
         player1.weapon = "rock";
       });
@@ -26,7 +26,7 @@ describe('Game', function(){
 
     });
 
-    describe('Player 1 chooses paper', function(){
+    context('Player 1 chooses paper', function(){
       beforeEach(function(){
         player1.weapon = "paper";
       });
@@ -48,7 +48,7 @@ describe('Game', function(){
 
     });
 
-    describe('Player 1 chooses scissors', function(){
+    context('Player 1 chooses scissors', function(){
       beforeEach(function(){
         player1.weapon = "scissors";
       });

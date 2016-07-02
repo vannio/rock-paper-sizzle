@@ -1,6 +1,17 @@
 var express = require('express');
 var app = express();
 var nunjucks = require('nunjucks');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+
+
+// ---------------------------------------
+// Parsing application
+// ---------------------------------------
+app.use(bodyParser.json()); // json
+app.use(bodyParser.urlencoded({ extended: true })); // x-www-form-urlencoded
+app.use(cookieParser('this_is_my_secret'));
+
 
 // ---------------------------------------
 // Sets config for rendering templates
@@ -17,7 +28,12 @@ nunjucks.configure('./app/views', {
 // Defines routes
 // ---------------------------------------
 app.get('/', function(request, response){
-  response.render('index', { title: 'Testing' })
+  response.render('index', { title: request.cookies.name })
+});
+
+app.post('/name', function(request, response){
+  response.cookie('name', request.body.name );
+  response.redirect('/');
 });
 
 

@@ -1,1 +1,7 @@
-<h2>{{ title }}</h2>
+<h1>Welcome back, {{ title }}</h1>
+
+<form action="/name" method="post">
+  <label for="name">Name</label>
+    <input type="text" name="name" id="name">
+  <input type="submit" value="Start Game">
+</form>

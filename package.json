@@ -1,15 +1,17 @@
 {
   "name": "rock-paper-sizzle",
   "version": "1.0.0",
-  "description": "",
+  "description": "Rock, paper, scissors game",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app/app.js",
-    "test": "mocha -r 'test/test_helpers.js'"
+    "test": "mocha 'test/**/*.js' -r 'test/test_helpers.js' -R nyan"
   },
   "author": "vannio",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "nunjucks": "^2.4.2"
   },
@@ -17,6 +19,7 @@
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
     "nodemon": "^1.9.2",
-    "sinon": "^1.17.4"
+    "sinon": "^1.17.4",
+    "zombie": "^4.2.1"
   }
 }

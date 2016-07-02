@@ -1,4 +1,4 @@
-var weapons = require('./../app/data/weapons');
+var weapons = require('./../../app/data/weapons');
 
 describe('Computer', function(){
   var computer = new Computer();
