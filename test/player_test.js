@@ -8,7 +8,7 @@ describe('Player', function(){
   describe('#pickWeapon', function(){
     it('can pick an existing weapon', function(){
       player.pickWeapon("scissors")
-      expect(player.currentWeapon).to.equal("scissors");
+      expect(player.weapon).to.equal("scissors");
     });
 
     it('cannot pick a non-existent weapon', function(){

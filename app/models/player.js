@@ -7,7 +7,7 @@ var Player = function(name){
 Player.prototype = {
   pickWeapon: function(weapon){
     if (weapons.indexOf(weapon) < 0) { throw new Error('Invalid weapon'); }
-    this.currentWeapon = weapon;
+    this.weapon = weapon;
   }
 };
 
