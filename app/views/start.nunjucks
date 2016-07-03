@@ -1,5 +1,5 @@
 {% extends 'choices.nunjucks' %}
 
 {% block notices %}
-<p>Welcome {{ player.name }}! You're playing against {{ computer.name }}.</p>
+<p>Welcome <strong>{{ player.name }}</strong>! You're playing against <strong>{{ computer.name }}</strong>.</p>
 {% endblock %}
