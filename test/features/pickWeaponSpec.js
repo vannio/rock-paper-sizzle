@@ -1,9 +1,9 @@
 describe('Picking a weapon', function(){
-  before(function(done){
+  before(function(next){
     browser.visit('/', function(){
       browser
         .fill('username', 'Van')
-        .pressButton('Start Game', done);
+        .pressButton('Start Game', next);
     });
   });
 

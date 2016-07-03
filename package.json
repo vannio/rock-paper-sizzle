@@ -4,8 +4,8 @@
   "description": "Rock, paper, scissors game",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app/app.js",
-    "test": "mocha 'test/**/*.js' -r 'test/test_helpers.js' -t 5000 -R nyan"
+    "start": "NODE_ENV=development nodemon app/app.js",
+    "test": "NODE_ENV=test mocha 'test/**/*.js' -r 'test/test_helpers.js' -R nyan"
   },
   "author": "vannio",
   "license": "ISC",

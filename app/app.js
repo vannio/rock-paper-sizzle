@@ -29,6 +29,7 @@ app.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2']
 }));
+
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
@@ -51,37 +52,34 @@ nunjucks.configure('./app/views', {
 // ---------------------------------------
 // Sets config for compass
 // ---------------------------------------
-app.use(
-  compass({
-    cache: false,
-    project: './app/public/'
-  })
-);
-app.use(express.static('./app/public/'));
+if (app.get('env') !== 'test'){
+  app.use(
+    compass({
+      project: './app/public/'
+    })
+  );
 
-
+  app.use(express.static('./app/public/'));
+}
 
 // ---------------------------------------
 // Defines routes
 // ---------------------------------------
 app.get('/', function(req, res){
-  if (req.session.player1) {
-    var player1 = req.session.player1;
-  }
-
-  req.session.player2 = new Computer();
   res.render('index');
 });
 
 app.post('/start', function(req, res){
   req.session.player1 = new Player(req.body.username);
+  req.session.player2 = new Computer();
   res.redirect('/start');
 });
 
 app.get('/start', function(req, res){
-  var player1 = req.session.player1;
-  var player2 = req.session.player2;
-  res.render('start', { player: player1, computer: player2 });
+  res.render('start', {
+    player: req.session.player1,
+    computer: req.session.player2
+  });
 });
 
 app.post('/play-again', function(req, res){
@@ -89,8 +87,9 @@ app.post('/play-again', function(req, res){
 });
 
 app.get('/choices', function(req, res){
-  var player1 = req.session.player1;
-  res.render('choices', { player: player1 });
+  res.render('choices', {
+    player: req.session.player1
+  });
 });
 
 app.post('/result', function(req, res){
@@ -101,15 +100,28 @@ app.post('/result', function(req, res){
       player2.pickWeapon();
 
   var game = new Game(player1, player2);
-  var winner = game.playRound();
 
-  res.render('continue', { player: player1, computer: player2, winner: winner });
+  res.render('continue', {
+    player: player1,
+    computer: player2,
+    winner: game.playRound()
+  });
 });
 
 
 // ---------------------------------------
 // Starts a HTTP server
 // ---------------------------------------
-app.listen(4567, function(){
-  console.log('Listening on port 4567');
-});
+app.locals.env = app.get('env');
+
+if (app.get('env') === 'test'){
+  app.listen(3000, function(){
+    console.log('Testing on port 3000');
+  });
+}
+
+if (app.get('env') === 'development'){
+  app.listen(4567, function(){
+    console.log('Listening on port 4567');
+  });
+}

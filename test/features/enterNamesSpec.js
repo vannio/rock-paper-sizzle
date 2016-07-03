@@ -1,6 +1,6 @@
 describe('Entering a name', function(){
-  before(function(done){
-    browser.visit('/', done);
+  before(function(next){
+    browser.visit('/', next);
   });
 
   it('should print name when form is submitted', function(done) {

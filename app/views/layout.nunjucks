@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rock, Paper, Sizzle</title>
+    {% if env != "test" %}
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
     <link rel="icon" href="/favicon.png" type="image/png">
     <script src="/scripts/preload.js"></script>
+    {% endif %}
   </head>
   <body>
     <h1 class="page-title">
@@ -15,8 +17,10 @@
 
     <div id="main-content">
       {% block hands %}
+      {% if env != "test" %}
       <div class="player-1-hand player-hand"></div>
       <div class="player-2-hand player-hand"></div>
+      {% endif %}
       {% endblock %}
 
       {% block notices %}
@@ -26,7 +30,9 @@
       {% endblock %}
     </div>
 
+    {% if env != "test" %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="/scripts/main.js"></script>
+    {% endif %}
   </body>
 </html>
