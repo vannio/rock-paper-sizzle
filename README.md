@@ -21,7 +21,7 @@ I would like to be able to play rock/paper/scissors
 1. Install the dependencies by running `bundle install && npm install`
 
 #### Tasks
-- Start test suite — `npm tests`
+- Start test suite — `npm test`
 - Start server — `npm start`, accessible at [http://localhost:4567](http://localhost:4567)
 
 #### Notes
