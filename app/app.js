@@ -114,14 +114,14 @@ app.post('/result', function(req, res){
 // ---------------------------------------
 app.locals.env = app.get('env');
 
-if (app.get('env') === 'test'){
-  app.listen(3000, function(){
-    console.log('Testing on port 3000');
+if (app.get('env') !== 'test'){
+  var port = process.env.PORT || 4567;
+  app.listen(port, function() {
+    console.log('App is running on http://localhost:' + port);
   });
 }
-
-if (app.get('env') === 'development'){
-  app.listen(4567, function(){
-    console.log('Listening on port 4567');
+else {
+  app.listen(3000, function() {
+    console.log('Testing on port ' + 3000);
   });
 }
