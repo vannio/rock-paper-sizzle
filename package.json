@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app/app.js",
-    "test": "mocha 'test/**/*.js' -r 'test/test_helpers.js' -R nyan"
+    "test": "mocha 'test/**/*.js' -r 'test/test_helpers.js' -t 5000 -R nyan"
   },
   "author": "vannio",
   "license": "ISC",
@@ -14,6 +14,7 @@
     "cookie-session": "^2.0.0-alpha.1",
     "express": "^4.14.0",
     "express-session": "^1.14.0",
+    "node-compass": "^0.2.4",
     "nunjucks": "^2.4.2"
   },
   "devDependencies": {

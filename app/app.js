@@ -4,6 +4,7 @@ var nunjucks = require('nunjucks');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session')
 var session = require('express-session');
+var compass = require('node-compass');
 
 
 // ---------------------------------------
@@ -45,6 +46,19 @@ nunjucks.configure('./app/views', {
   watch: true,
   express: app
 });
+
+
+// ---------------------------------------
+// Sets config for compass
+// ---------------------------------------
+app.use(
+  compass({
+    cache: false,
+    project: './app/public/'
+  })
+);
+app.use(express.static('./app/public/'));
+
 
 
 // ---------------------------------------
