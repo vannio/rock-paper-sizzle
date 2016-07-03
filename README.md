@@ -18,7 +18,8 @@ I would like to be able to play rock/paper/scissors
 #### Installation
 1. Clone this repo
 1. Change the working directory with `cd`
-1. Install the dependencies by running `bundle install && npm install`
+1. Install Mocha, the testing framework, by running `npm install -g mocha`
+1. Install the rest of the dependencies by running `bundle install && npm install`
 
 #### Tasks
 - Start test suite — `npm test`
