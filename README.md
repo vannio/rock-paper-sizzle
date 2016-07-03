@@ -22,7 +22,7 @@ I would like to be able to play rock/paper/scissors
 
 #### Tasks
 - Start test suite — `npm test`
-- Start server — `npm dev`, accessible at [http://localhost:4567](http://localhost:4567)
+- Start server — `npm start`, accessible at [http://localhost:4567](http://localhost:4567)
 
 #### Notes
 - `Express.js` as the web-app framework
