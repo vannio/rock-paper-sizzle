@@ -1,13 +1,13 @@
 describe('Entering a name', function(){
-  before(function(next){
-    browser.visit('/', next);
+  before(function(done){
+    browser.visit('/', done);
   });
 
   it('should print name when form is submitted', function(done) {
     browser
-      .fill('name', 'Van')
+      .fill('username', 'Van')
       .pressButton('Start Game', function(){
-        expect(browser.text('h1')).to.contain('Van');
+        expect(browser.text('body')).to.contain('Van');
         done();
       });
   });

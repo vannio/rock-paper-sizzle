@@ -1,8 +1,8 @@
 var weapons = require('./../data/weapons');
 var names = ["Hugh Jass", "I.P. Freely", "Amanda Hugginkiss"];
 
-var Computer = function(){
-  this.name = this._sample(names);
+var Computer = function(name){
+  this.name = name || this._sample(names);
 }
 
 Computer.prototype = {

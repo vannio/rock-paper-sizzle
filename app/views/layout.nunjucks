@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rock, Paper, Sizzle</title>
+  </head>
+  <body>
+    <h1><a href="/">Rock, Paper, Sizzle</a></h1>
+    {% block hands %}
+    <div class="player-1-hand player-hand"></div>
+    <div class="player-2-hand player-hand"></div>
+    {% endblock %}
+
+    {% block notices %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

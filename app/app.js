@@ -2,7 +2,16 @@ var express = require('express');
 var app = express();
 var nunjucks = require('nunjucks');
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
+var cookieSession = require('cookie-session')
+var session = require('express-session');
+
+
+// ---------------------------------------
+// Requiring models
+// ---------------------------------------
+var Game = require('./models/game');
+var Player = require('./models/player');
+var Computer = require('./models/computer');
 
 
 // ---------------------------------------
@@ -10,7 +19,21 @@ var cookieParser = require('cookie-parser');
 // ---------------------------------------
 app.use(bodyParser.json()); // json
 app.use(bodyParser.urlencoded({ extended: true })); // x-www-form-urlencoded
-app.use(cookieParser('this_is_my_secret'));
+
+
+// ---------------------------------------
+// Cookies and sessions
+// ---------------------------------------
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}));
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
 
 
 // ---------------------------------------
@@ -27,13 +50,46 @@ nunjucks.configure('./app/views', {
 // ---------------------------------------
 // Defines routes
 // ---------------------------------------
-app.get('/', function(request, response){
-  response.render('index', { title: request.cookies.name })
+app.get('/', function(req, res){
+  if (req.session.player1) {
+    var player1 = req.session.player1;
+  }
+
+  req.session.player2 = new Computer();
+  res.render('index');
 });
 
-app.post('/name', function(request, response){
-  response.cookie('name', request.body.name );
-  response.redirect('/');
+app.post('/start', function(req, res){
+  req.session.player1 = new Player(req.body.username);
+  res.redirect('/start');
+});
+
+app.get('/start', function(req, res){
+  var player1 = req.session.player1;
+  var player2 = req.session.player2;
+  res.render('start', { player: player1, computer: player2 });
+});
+
+app.post('/play-again', function(req, res){
+  res.redirect('/start');
+});
+
+app.get('/choices', function(req, res){
+  var player1 = req.session.player1;
+  res.render('choices', { player: player1 });
+});
+
+app.post('/result', function(req, res){
+  var player1 = new Player(req.session.player1.name);
+      player1.pickWeapon(req.body.weapon);
+
+  var player2 = new Computer(req.session.player2.name);
+      player2.pickWeapon();
+
+  var game = new Game(player1, player2);
+  var winner = game.playRound();
+
+  res.render('continue', { player: player1, computer: player2, winner: winner });
 });
 
 

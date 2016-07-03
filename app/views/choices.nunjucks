@@ -1,0 +1,16 @@
+{% extends 'layout.nunjucks' %}
+
+{% block content %}
+<form method="post" action="/result" class="form-choice" id="form-choice">
+  <label>
+    <input type="radio" name="weapon" value="rock" checked>Rock
+  </label>
+  <label>
+    <input type="radio" name="weapon" value="paper">Paper
+  </label>
+  <label>
+    <input type="radio" name="weapon" value="scissors">Scissors
+  </label>
+  <input type="submit" class="input-btn" id="form-choice-submit" value="Submit">
+</form>
+{% endblock %}

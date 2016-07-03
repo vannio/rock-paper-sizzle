@@ -1,0 +1,5 @@
+{% extends 'choices.nunjucks' %}
+
+{% block notices %}
+<p>Welcome {{ player.name }}! You're playing against {{ computer.name }}.</p>
+{% endblock %}

@@ -1,7 +1,8 @@
-<h1>Welcome back, {{ title }}</h1>
+{% extends 'layout.nunjucks' %}
 
-<form action="/name" method="post">
-  <label for="name">Name</label>
-    <input type="text" name="name" id="name">
-  <input type="submit" value="Start Game">
+{% block content %}
+<form method="post" action="/start" class="form-name" id="form-name">
+  <input type="text" name="username" class="input-text" autocomplete="off" required placeholder="What's your name?">
+  <input type="submit" class="input-btn" value="Start Game">
 </form>
+{% endblock %}
