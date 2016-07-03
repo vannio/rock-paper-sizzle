@@ -7,10 +7,10 @@
 
 {% block notices %}
 <div class="player-1">
-  <p>{{ player.name }} chose {{ player.weapon }}</p>
+  <p><strong>{{ player.name }}</strong> chose <strong>{{ player.weapon }}</strong></p>
 </div>
 <div class="player-2">
-  <p>{{ computer.name }} chose {{ computer.weapon }}</p>
+  <p><strong>{{ computer.name }}</strong> chose <strong>{{ computer.weapon }}</strong></p>
 </div>
 
 <h2>{% if winner %}{{ winner.name }} wins this round!{% else %}It's a tie!{% endif %}</h2>
