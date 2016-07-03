@@ -7,11 +7,14 @@ body {
   background-color: $bg-color;
   margin: 0;
   text-align: center;
+  display: -webkit-flex;
   display: flex;
   flex-direction: column;
+  -webkit-flex-direction: column;
 }
 
 #main-content {
+  -webkit-flex: 1;
   flex: 1;
 }
 
