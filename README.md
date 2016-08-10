@@ -1,18 +1,9 @@
 # Rock Paper Sizzle _in Node_
 This is an entirely experimental implementation of the Rock, Paper, Scissors game that was [originally built in Ruby](https://github.com/vannio/challenge-rockpaperscissors).
 
-#### User Stories
-```
-As a user
-So that I can see my name in lights
-I would like to register my name before playing an online game
-```
+![homepage](/screenshots/screen-1.png)
 
-```
-As a user
-So that I can enjoy myself away from the daily grind
-I would like to be able to play rock/paper/scissors
-```
+![results](/screenshots/screen-2.png)
 
 ## Getting Started
 #### Installation
@@ -31,3 +22,16 @@ I would like to be able to play rock/paper/scissors
 - `Compass` for tidier, sassier css
 - `Nodemon` to monitor changes and restart server
 - `Mocha`, `chai`, `sinon` and `zombie` for running tests
+
+#### User Stories
+```
+As a user
+So that I can see my name in lights
+I would like to register my name before playing an online game
+```
+
+```
+As a user
+So that I can enjoy myself away from the daily grind
+I would like to be able to play rock/paper/scissors
+```
